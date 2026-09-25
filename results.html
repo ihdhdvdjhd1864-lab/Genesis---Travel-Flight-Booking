@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Genesis - Flight Results</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="results.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="logo"> GENESIS </a>
+
+        <a href="index.html" class="back-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back
+        </a>
+      </div>
+    </header>
+
+    <main class="results">
+      <div class="container">
+        <!-- Search Info -->
+        <div class="search-info">
+          <div class="route">
+            <strong id="fromResult">CAI</strong>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+            <strong id="toResult">JFK</strong>
+          </div>
+
+          <div class="details">
+            <span id="dateResult"></span>
+            <span id="travelersResult"></span>
+            <span id="classResult"></span>
+          </div>
+        </div>
+
+        <!-- Results Header -->
+        <div class="results-header">
+          <div>
+            <h1>Available Flights</h1>
+
+            <p>
+              <span id="resultsCount">0</span>
+              flights found
+            </p>
+          </div>
+        </div>
+
+        <!-- Flights -->
+        <div id="flightsContainer" class="flights-container"></div>
+
+        <!-- No Results -->
+        <div id="noResults" class="no-results" hidden>
+          <i class="fa-solid fa-plane-slash"></i>
+
+          <h2>No flights found</h2>
+
+          <p>Try another date or destination.</p>
+
+          <a href="index.html"> Search Again </a>
+        </div>
+      </div>
+    </main>
+
+    <script src="results.js"></script>
+  </body>
+</html>

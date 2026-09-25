@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis - Travel & Flight Booking</title>
+    <!-- FontAwesome for visual icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Google Fonts Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="Dabiya"></div>
+    <header class="glass-nav">
+      <div class="container nav-container">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <span>Genesis</span>
+        </a>
+
+        <ul class="nav-links">
+          <li>
+            <a href="#">Flights <i class="fa-solid fa-chevron-down"></i></a>
+          </li>
+          <li>
+            <a href="#">Hotels <i class="fa-solid fa-chevron-down"></i></a>
+          </li>
+          <li>
+            <a href="#">Experiences <i class="fa-solid fa-chevron-down"></i></a>
+          </li>
+          <li>
+            <a href="#"
+              >Manage Booking <i class="fa-solid fa-chevron-down"></i
+            ></a>
+          </li>
+        </ul>
+
+        <button class="btn-signin">Sign In</button>
+
+        <button class="hamburger-menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-title-area">
+          <div class="tagline-badge">
+            <i class="fa-solid fa-plane"></i>
+            <span>YOUR JOURNEY BEGINS HERE</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+          <h1 class="hero-headline">Genesis</h1>
+          <p class="hero-sub">More than a destination, it's an experience.</p>
+        </div>
+
+        <div class="search-widget glass-card">
+          <!-- Category Tabs & Dropdown -->
+          <div class="widget-top-bar">
+            <div class="category-tabs">
+              <button class="tab-btn active">
+                <i class="fa-solid fa-plane"></i>
+                <span>Flights</span>
+              </button>
+              <button class="tab-btn">
+                <i class="fa-solid fa-hotel"></i>
+                <span>Hotels</span>
+              </button>
+              <button class="tab-btn">
+                <i class="fa-solid fa-compass"></i>
+                <span>Experiences</span>
+              </button>
+              <button class="tab-btn">
+                <i class="fa-solid fa-car"></i>
+                <span>Car Rental</span>
+              </button>
+            </div>
+
+            <div class="select-wrapper">
+              <select class="trip-type-select">
+                <option>Round Trip</option>
+                <option>One Way</option>
+                <option>Multi-City</option>
+              </select>
+              <i class="fa-solid fa-chevron-down"></i>
+            </div>
+          </div>
+
+          <!-- Flight Search Inputs -->
+          <div class="search-grid">
+            <!-- From -->
+            <div class="input-card">
+              <span class="input-label">From</span>
+
+              <div class="input-value-row">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <select class="input-field" id="fromSelect">
+                  <option value="CAI">Cairo (CAI)</option>
+                  <option value="FCO">Rome (FCO)</option>
+                  <option value="DXB">Dubai (DXB)</option>
+                </select>
+              </div>
+
+              <span class="input-subtext" id="fromCountry">Egypt</span>
+            </div>
+
+            <!-- Swap -->
+            <div class="swap-btn-container">
+              <button class="swap-btn" id="swapBtn" title="Swap locations">
+                <i class="fa-solid fa-right-left"></i>
+              </button>
+            </div>
+
+            <!-- To -->
+            <div class="input-card">
+              <span class="input-label">To</span>
+
+              <div class="input-value-row">
+                <i class="fa-solid fa-location-dot"></i>
+
+                <select class="input-field" id="toSelect">
+                  <option value="JFK">New York (JFK)</option>
+                  <option value="CAI">Cairo (CAI)</option>
+                  <option value="FCO">Rome (FCO)</option>
+                  <option value="DXB">Dubai (DXB)</option>
+                </select>
+              </div>
+
+              <span class="input-subtext" id="toCountry">United States</span>
+            </div>
+
+            <!-- Dates -->
+            <div class="date-picker-group">
+              <div class="date-box">
+                <span class="input-label">Depart</span>
+
+                <div class="input-value-row">
+                  <input type="date" class="input-field" id="departDate" />
+                </div>
+                <span class="input-subtext" id="toDate">../../..</span>
+              </div>
+
+              <div class="date-box">
+                <span class="input-label">Return</span>
+
+                <div class="input-value-row">
+                  <input type="date" class="input-field" id="returnDate" />
+                </div>
+                <span class="input-subtext" id="fromDate">../../..</span>
+              </div>
+            </div>
+
+            <!-- Travelers -->
+            <div class="input-card travelers-card">
+              <span class="input-label">Travelers</span>
+
+              <div class="input-value-row" id="travelersBtn">
+                <i class="fa-regular fa-user"></i>
+
+                <span class="input-field" id="travelersInput">
+                  <span id="travelersCount">1</span> Passenger
+                </span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+
+              <span class="input-subtext" id="classType"> Economy </span>
+
+              <!-- Travelers Menu -->
+              <div class="travelers-menu" id="travelersMenu">
+                <div class="traveler-row">
+                  <span>Adults</span>
+
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="adults"
+                      data-action="decrease"
+                    >
+                      −
+                    </button>
+
+                    <span id="adultsCount">1</span>
+
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="adults"
+                      data-action="increase"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div class="traveler-row">
+                  <span>Children</span>
+
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="children"
+                      data-action="decrease"
+                    >
+                      −
+                    </button>
+
+                    <span id="childrenCount">0</span>
+
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="children"
+                      data-action="increase"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="traveler-row">
+                  <span>Infants</span>
+
+                  <div class="counter">
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="infants"
+                      data-action="decrease"
+                    >
+                      −
+                    </button>
+
+                    <span id="infantsCount">0</span>
+
+                    <button
+                      type="button"
+                      class="counter-btn"
+                      data-type="infants"
+                      data-action="increase"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+
+                <div class="class-selection">
+                  <span>Class</span>
+
+                  <select id="classSelect">
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="First Class">First Class</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="widget-action-bar">
+            <button class="btn-search">
+              <span>Search Flights</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature-strip">
+        <div class="container">
+          <div class="feature-grid">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fa-solid fa-tags"></i>
+              </div>
+              <div>
+                <div class="feature-title">Best Price Guarantee</div>
+                <div class="feature-sub">Find the best deals</div>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fa-solid fa-headset"></i>
+              </div>
+              <div>
+                <div class="feature-title">24/7 Customer Support</div>
+                <div class="feature-sub">We're here to help</div>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <div class="feature-title">Secure Booking</div>
+                <div class="feature-sub">Your data is protected</div>
+              </div>
+            </div>
+
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fa-solid fa-arrows-rotate"></i>
+              </div>
+              <div>
+                <div class="feature-title">Flexible Options</div>
+                <div class="feature-sub">Change with ease</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="deals-section">
+        <div class="container">
+          <div class="deals-grid">
+            <!-- Destination 1: Dubai -->
+            <div class="deal-card">
+              <img
+                src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1200&auto=format&fit=crop"
+                alt="Dubai"
+                class="deal-card-bg"
+              />
+              <div class="deal-overlay"></div>
+
+              <span class="deal-badge">Popular Destination</span>
+
+              <div class="deal-content">
+                <h3 class="deal-title">Dubai</h3>
+                <div class="deal-location">United Arab Emirates</div>
+
+                <div class="deal-footer">
+                  <div>
+                    <span class="price-label">From</span>
+                    <div>
+                      <span class="price-val">$499</span>
+                      <span class="price-period">/ Return</span>
+                    </div>
+                  </div>
+                  <button class="btn-book">Book Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Destination 2: Tokyo -->
+            <div class="deal-card">
+              <img
+                src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop"
+                alt="Tokyo"
+                class="deal-card-bg"
+              />
+              <div class="deal-overlay"></div>
+
+              <span class="deal-badge blue">Great Deals</span>
+
+              <div class="deal-content">
+                <h3 class="deal-title">Tokyo</h3>
+                <div class="deal-location">Japan</div>
+
+                <div class="deal-footer">
+                  <div>
+                    <span class="price-label">From</span>
+                    <div>
+                      <span class="price-val">$649</span>
+                      <span class="price-period">/ Return</span>
+                    </div>
+                  </div>
+                  <button class="btn-book">Book Now</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exclusive Offers Newsletter Card -->
+            <div class="newsletter-card glass-dark-card">
+              <i class="fa-solid fa-plane-departure newsletter-bg-icon"></i>
+
+              <div>
+                <h3 class="newsletter-title">Exclusive Offers</h3>
+                <p class="newsletter-desc">
+                  Sign up and get up to
+                  <span style="color: #60a5fa; font-weight: 700">20% OFF</span>
+                  on your next flight booking.
+                </p>
+              </div>
+
+              <form class="newsletter-form" action="#" method="POST">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Enter your email"
+                  required
+                />
+                <button type="submit" class="newsletter-btn">
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="partners-section">
+        <div class="container">
+          <div class="partners-label">TRUSTED PARTNER AIRLINES</div>
+
+          <!-- شريط الشعارات المتحرك -->
+          <div class="partners-slider">
+            <div class="partners-track">
+              <!-- طيران الإمارات -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/EK.png"
+                  alt="Emirates"
+                  class="partner-img"
+                />
+                <span>Emirates</span>
+              </div>
+
+              <!-- الخطوط القطرية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/QR.png"
+                  alt="Qatar Airways"
+                  class="partner-img"
+                />
+                <span>Qatar Airways</span>
+              </div>
+
+              <!-- لوفتهانزا -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/LH.png"
+                  alt="Lufthansa"
+                  class="partner-img"
+                />
+                <span>Lufthansa</span>
+              </div>
+
+              <!-- الخطوط الفرنسية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/AF.png"
+                  alt="Air France"
+                  class="partner-img"
+                />
+                <span>Air France</span>
+              </div>
+
+              <!-- دلتا -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/DL.png"
+                  alt="Delta"
+                  class="partner-img"
+                />
+                <span>Delta Air Lines</span>
+              </div>
+
+              <!-- الخطوط التركية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/TK.png"
+                  alt="Turkish Airlines"
+                  class="partner-img"
+                />
+                <span>Turkish Airlines</span>
+              </div>
+
+              <!-- الخطوط البريطانية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/BA.png"
+                  alt="British Airways"
+                  class="partner-img"
+                />
+                <span>British Airways</span>
+              </div>
+
+              <!-- الخطوط السنغافورية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/SQ.png"
+                  alt="Singapore Airlines"
+                  class="partner-img"
+                />
+                <span>Singapore Airlines</span>
+              </div>
+
+              <!-- تكرار العناصر لضمان سلاسة الحركة اللانهائية -->
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/EK.png"
+                  alt="Emirates"
+                  class="partner-img"
+                />
+                <span>Emirates</span>
+              </div>
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/QR.png"
+                  alt="Qatar Airways"
+                  class="partner-img"
+                />
+                <span>Qatar Airways</span>
+              </div>
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/LH.png"
+                  alt="Lufthansa"
+                  class="partner-img"
+                />
+                <span>Lufthansa</span>
+              </div>
+              <div class="partner-item">
+                <img
+                  src="https://images.kiwi.com/airlines/64/AF.png"
+                  alt="Air France"
+                  class="partner-img"
+                />
+                <span>Air France</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" dir="rtl">
+      <div class="footer-container">
+        <!-- الجزء العلوي من الفوتر -->
+        <div class="footer-top">
+          <!-- العمود الأول: للإستفسار اتصل بنا -->
+          <div class="footer-col">
+            <h3>للإستفسار أتصل بنا على الرقم</h3>
+            <div class="phone-number">19359</div>
+            <a
+              href="mailto:Customercare@genesis-flights.com"
+              class="email-link"
+            >
+              Customercare@genesis-flights.com
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+            <div class="badge-support">
+              <span class="dot"></span>
+              دعم عملاء مخصص على مدار الساعة طوال أيام الأسبوع
+            </div>
+          </div>
+
+          <!-- العمود الثاني: بياناتك الشخصية مؤمنة -->
+          <div class="footer-col text-center">
+            <h3>بياناتك الشخصية مؤمنة بنسبة 100%</h3>
+            <div class="security-badges">
+              <div class="sec-badge">
+                <span class="badge-icon red">t</span>
+                <div class="badge-text">
+                  <strong>thawte</strong><br /><small>Consulting</small>
+                </div>
+              </div>
+              <div class="sec-badge">
+                <span class="badge-icon green"
+                  ><i class="fa-solid fa-check"></i
+                ></span>
+                <div class="badge-text">
+                  <strong>VeriSign</strong><br /><small>Secured</small>
+                </div>
+              </div>
+              <div class="sec-badge green-shield-badge">
+                <span class="badge-icon shield"
+                  ><i class="fa-solid fa-shield-halved"></i
+                ></span>
+                <div class="badge-text">
+                  <strong>SECURITY 100%</strong><br /><small>GUARANTEE</small>
+                </div>
+              </div>
+            </div>
+            <p class="security-desc">
+              نستخدم تشفير SSL بعرض 256 بت لضمان أمان كامل لبيانات بطاقاتك
+              الائتمانية ومعلومات حجز الطيران.
+            </p>
+          </div>
+
+          <!-- العمود الثالث: التواصل الاجتماعي وطرق الدفع -->
+          <div class="footer-col text-left">
+            <h3>مثله؟ احب هذا؟ تنتشر في العالم</h3>
+            <div class="social-icons">
+              <a
+                href="https://wa.me/19359"
+                class="social-btn"
+                aria-label="WhatsApp"
+                target="_blank"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="X (Twitter)">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="#" class="social-btn" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+
+            <h4 class="payment-title">نحن نقبل</h4>
+            <div class="payment-methods">
+              <!-- شعار بنك مصر -->
+              <div class="pay-card bm-card">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>بنك مصر</span>
+              </div>
+              <!-- Apple Pay -->
+              <div class="pay-card apple-pay">
+                <i class="fa-brands fa-apple"></i> Pay
+              </div>
+              <!-- Mastercard -->
+              <div class="pay-card mastercard">
+                <i class="fa-brands fa-cc-mastercard"></i>
+              </div>
+              <!-- VISA -->
+              <div class="pay-card visa">
+                <i class="fa-brands fa-cc-visa"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <!-- الجزء الأوسط: روابط التنقل -->
+        <div class="footer-links-grid">
+          <div class="link-group">
+            <h4>حجوزات الطيران</h4>
+            <ul>
+              <li><a href="#">حجز رحلات ذهاب وعودة</a></li>
+              <li><a href="#">عروض الطيران اللحظية</a></li>
+              <li><a href="#">حالة الرحلات الجوية</a></li>
+              <li><a href="#">جداول الرحلات</a></li>
+            </ul>
+          </div>
+
+          <div class="link-group">
+            <h4>الوجهات الشائعة</h4>
+            <ul>
+              <li><a href="#">رحلات إلى القاهرة</a></li>
+              <li><a href="#">رحلات إلى دبي</a></li>
+              <li><a href="#">رحلات إلى إسطنبول</a></li>
+              <li><a href="#">رحلات إلى جدة</a></li>
+            </ul>
+          </div>
+
+          <div class="link-group">
+            <h4>خدمات المسافرين</h4>
+            <ul>
+              <li><a href="#">إدارة الحجز</a></li>
+              <li><a href="#">الوزن المسموح به</a></li>
+              <li><a href="#">إنهاء إجراءات السفر أونلاين</a></li>
+              <li><a href="#">برنامج الولاء Genesis Rewards</a></li>
+            </ul>
+          </div>
+
+          <div class="link-group">
+            <h4>عن Genesis</h4>
+            <ul>
+              <li><a href="#">من نحن</a></li>
+              <li><a href="#">الأسئلة الشائعة</a></li>
+              <li><a href="#">سياسة الأمان والخصوصية</a></li>
+              <li><a href="#">تواصل معنا</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- الجزء السفلي: حقوق النشر والشروط -->
+        <div class="footer-bottom">
+          <div class="copyright">
+            © 2026 .Genesis للطيران والرحلات. كل الحقوق محفوظة.
+          </div>
+          <div class="bottom-links">
+            <a href="#">سياسة الخصوصية</a>
+            <span class="bullet">•</span>
+            <a href="#">الشروط والأحكام</a>
+            <span class="bullet">•</span>
+            <a href="#">ترخيص الطيران الدولي (IATA)</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
