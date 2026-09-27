@@ -32,7 +32,12 @@ function displayFlights(results) {
     card.className = "flight-card";
     let stops = flight.stops === 0 ? "Non-stop" : `${flight.stops} Stop`;
     card.innerHTML = `
+
+
       <div class="airline">
+          <div class="airline-logo">
+      <img class="logo2" src="${flight.image}" alt="${flight.image} Logo" />
+    </div>
         <strong>
           ${flight.airline}
         </strong>
@@ -103,14 +108,22 @@ function displayFlights(results) {
     `;
 
     flightsContainer.appendChild(card);
+    let addButtons = card.querySelectorAll(".select-flight");
+    addButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        let id = button.dataset.id;
+        handleSelectFlight(id);
+      });
+    });
   });
 }
 
 // Get Flights
+let data;
 async function getFlights() {
   try {
     let response = await fetch("./dade.json");
-    let data = await response.json();
+    data = await response.json();
     let results = data.filter((flight) => {
       return (
         flight.from === searchData.fromSelect &&
@@ -124,5 +137,11 @@ async function getFlights() {
     console.log("Error:", error);
   }
 }
-
 getFlights();
+
+let TravelCart = JSON.parse(localStorage.getItem("TravelCart")) || [];
+function handleSelectFlight(id) {
+  let selectedFlight = data.find((flight) => flight.id === Number(id));
+  localStorage.setItem("selectedFlight", JSON.stringify(selectedFlight));
+  window.location.href = "checkout.html";
+}

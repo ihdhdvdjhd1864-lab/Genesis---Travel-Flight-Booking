@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genesis - Complete Your Booking</title>
+
+    <!-- Fonts & FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style Links -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="checkout.css" />
+  </head>
+  <body>
+    <header class="glass-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <span>Genesis</span>
+        </a>
+        <a href="results.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i> Back to Results
+        </a>
+      </div>
+    </header>
+
+    <main class="checkout-section">
+      <div class="container">
+        <div class="checkout-grid">
+          <!-- ملخص الرحلة المختارة -->
+          <div class="summary-card glass-dark-card">
+            <h2><i class="fa-solid fa-ticket icon-blue"></i> Flight Summary</h2>
+
+            <div class="flight-info-box">
+              <div class="flight-info-row">
+                <span class="info-label">Airline</span>
+                <strong id="summaryAirline">-</strong>
+              </div>
+              <div class="flight-info-row">
+                <span class="info-label">Route</span>
+                <strong
+                  ><span id="summaryFrom">-</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span id="summaryTo">-</span></strong
+                >
+              </div>
+              <div class="flight-info-row">
+                <span class="info-label">Departure</span>
+                <strong id="summaryTime">-</strong>
+              </div>
+              <div class="flight-info-row">
+                <span class="info-label">Class</span>
+                <strong id="summaryClass">-</strong>
+              </div>
+            </div>
+
+            <div class="flight-info-box">
+              <div class="flight-info-row">
+                <span class="info-label">Passengers</span>
+                <strong id="summaryPassengers">1</strong>
+              </div>
+              <div class="flight-info-row total-row">
+                <span class="total-label">Total Price</span>
+                <strong id="summaryPrice" class="total-amount">$0</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- فورمة بيانات المسافر -->
+          <div class="form-card glass-dark-card">
+            <h2>
+              <i class="fa-solid fa-user-check icon-blue"></i> Passenger Details
+            </h2>
+
+            <form id="checkoutForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    required
+                    placeholder="John"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    required
+                    placeholder="Doe"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  required
+                  placeholder="john@example.com"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="passport">Passport Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="passport"
+                    required
+                    placeholder="A12345678"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    required
+                    placeholder="+20 100 000 0000"
+                  />
+                </div>
+              </div>
+
+              <button type="submit" class="btn-confirm">
+                Confirm & Complete Booking
+              </button>
+            </form>
+            <!-- كارت التذكرة الإلكترونية (مخفي في الأول) -->
+            <div
+              id="ticketContainer"
+              class="glass-dark-card ticket-card"
+              style="display: none"
+            >
+              <div class="ticket-header">
+                <div class="brand">
+                  <i class="fa-solid fa-plane-departure"></i>
+                  <span>Genesis Boarding Pass</span>
+                </div>
+
+                <!-- تجميع العنصرين مع بعض عشان نتحكم فيهم بسهولة -->
+                <div class="ticket-header-right">
+                  <div class="ticket-id">
+                    Ticket ID: <span id="ticketId">1</span>
+                  </div>
+                  <span class="ticket-status"
+                    ><i class="fa-solid fa-circle-check"></i> CONFIRMED</span
+                  >
+                </div>
+              </div>
+
+              <div class="ticket-body">
+                <div class="ticket-row">
+                  <div class="ticket-col">
+                    <label>PASSENGER</label>
+                    <h3 id="ticketPassengerName">-</h3>
+                  </div>
+                  <div class="ticket-col">
+                    <label>BOOKING REF</label>
+                    <h3 id="ticketRef" class="highlight-text">-</h3>
+                  </div>
+                </div>
+
+                <div class="ticket-row">
+                  <div class="ticket-col">
+                    <label>FROM</label>
+                    <h4 id="ticketFrom">-</h4>
+                  </div>
+                  <div class="ticket-icon">
+                    <i class="fa-solid fa-plane"></i>
+                  </div>
+                  <div class="ticket-col">
+                    <label>TO</label>
+                    <h4 id="ticketTo">-</h4>
+                  </div>
+                </div>
+
+                <div class="ticket-row">
+                  <div class="ticket-col">
+                    <label>AIRLINE</label>
+                    <p id="ticketAirline">-</p>
+                  </div>
+                  <div class="ticket-col">
+                    <label>FLIGHT TIME</label>
+                    <p id="ticketTime">-</p>
+                  </div>
+                  <div class="ticket-col">
+                    <label>CLASS</label>
+                    <p id="ticketClass">-</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ticket-footer">
+                <div class="barcode">
+                  <!-- باركود وهمي بالشكل -->
+                  <div class="barcode-container">
+                    <svg id="barcode"></svg>
+                  </div>
+                </div>
+
+                <button onclick="window.print()" class="btn-print">
+                  <i class="fa-solid fa-print"></i> Print Boarding Pass
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Success Notification / Toast -->
+    <div id="bookingToast" class="booking-toast">
+      <div class="toast-content">
+        <div class="toast-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div class="toast-text">
+          <h4>Booking Confirmed!</h4>
+          <p>Generating your electronic boarding pass...</p>
+        </div>
+      </div>
+      <div class="toast-progress"></div>
+    </div>
+
+    <!-- مكتبة توليد الباركود -->
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="checkout.js"></script>
+  </body>
+</html>

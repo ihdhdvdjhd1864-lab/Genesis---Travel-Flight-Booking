@@ -108,6 +108,8 @@ btnSearch.addEventListener("click", () => {
     adultsCount: document.querySelector("#adultsCount").textContent,
     childrenCount: document.querySelector("#childrenCount").textContent,
     infantsCount: document.querySelector("#infantsCount").textContent,
+    
+    
   };
   localStorage.setItem("arrDate", JSON.stringify(arrDate));
   window.location.href = "results.html";
