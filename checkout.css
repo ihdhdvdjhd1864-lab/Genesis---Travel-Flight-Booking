@@ -373,6 +373,57 @@
     width: 0%;
   }
 }
+/* =========================================
+   Official Verification Footer Style
+========================================= */
+
+.ticket-verified-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  font-size: 11px;
+  color: #64748b;
+}
+
+.verified-brand {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-brand strong {
+  color: #e2e8f0;
+  letter-spacing: 0.5px;
+}
+
+.verified-icon {
+  color: #3b82f6; /* لون علامة التوثيق الأزرق النيون */
+  font-size: 13px;
+}
+
+.system-signature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #64748b;
+  font-family: monospace;
+}
+
+.system-signature i {
+  color: #10b981; /* أيكونة درع الأمان بالأخضر */
+}
+
+/* ظبط المظهر على الموبايل */
+@media (max-width: 576px) {
+  .ticket-verified-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
 
 /* ظبط الرسالة للموبايل */
 @media (max-width: 576px) {

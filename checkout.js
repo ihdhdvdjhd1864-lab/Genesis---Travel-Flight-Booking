@@ -28,8 +28,8 @@ function displayFlightSummary(flight) {
   console.log(flight);
 }
 displayFlightSummary(selectedFlightData);
-
 checkoutForm.addEventListener("submit", (e) => {
+
   e.preventDefault();
   // 1. تجميع بيانات المسافر
   const firstName = document.getElementById("firstName").value;
@@ -104,4 +104,3 @@ checkoutForm.addEventListener("submit", (e) => {
     localStorage.removeItem("selectedFlight");
   }, 2500);
 });
-للمستخدم;
