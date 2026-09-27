@@ -477,58 +477,84 @@
     size: A4;
     margin: 10mm;
   }
-  /* 1. إخفاء كل عناصر الصفحة ما عدا كارت التذكرة */
+
+  /* إخفاء الصفحة كلها */
   body * {
     visibility: hidden;
   }
 
+  /* إظهار التذكرة فقط */
   #ticketContainer,
   #ticketContainer * {
     visibility: visible;
   }
 
-  /* 2. ضبط مكان التذكرة في نصف ورقة الطباعة بالضبط */
+  /* التذكرة */
   #ticketContainer {
     position: absolute;
+    top: 0;
     left: 0;
 
-    top: 0;
     width: 100%;
-    margin: 0 auto;
+    max-width: none;
+
+    margin: 0;
+    padding: 20px !important;
+
+    box-sizing: border-box;
+
     border: 2px solid #3b82f6 !important;
     border-radius: 16px !important;
-    padding: 30px !important;
-    background: #0f172a !important; /* خلفية كحلي غامق فخمة في الطباعة */
+
+    background: #0f172a !important;
     color: #ffffff !important;
-    /* إجبار المتصفح إنه يطبع ألوان الخلفية والـ Gradients */
+
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
+
     overflow: hidden;
+
+    /* مهم جدًا */
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 
-  /* 3. إخفاء زرار الطباعة نفسه عشان ما يظهرش جوه الورقة */
+  /* منع أي عنصر داخل التذكرة من عمل صفحة جديدة */
+  #ticketContainer * {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* إخفاء زرار الطباعة */
   .btn-print {
     display: none !important;
   }
 
-  /* 4. إضافة طائرة مائية هولوجرام في خلفية التذكرة المطبوعة */
-  #ticketContainer::before {
-    content: "\f072"; /* كود أيقونة الطائرة في FontAwesome */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    right: 5%;
-    bottom: -20px;
-    font-size: 180px;
-    color: rgba(59, 130, 246, 0.08) !important; /* طيارة شفافة في الخلفية */
-    transform: rotate(-25deg);
-    pointer-events: none;
-  }
-
-  /* 5. إظهار الباركود خلفيته بيضاء بوضوح عشان أجهزة المطار تقراه */
+  /* الباركود */
   .barcode-container {
     background: #ffffff !important;
     border-radius: 8px;
     padding: 6px;
+
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* الطائرة في الخلفية */
+  #ticketContainer::before {
+    content: "\f072";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+
+    position: absolute;
+    right: 5%;
+    bottom: -20px;
+
+    font-size: 180px;
+    color: rgba(59, 130, 246, 0.08) !important;
+
+    transform: rotate(-25deg);
+
+    pointer-events: none;
   }
 }
