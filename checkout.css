@@ -481,7 +481,7 @@
   #ticketContainer {
     position: absolute;
     left: 0;
-    transform: translateX(-38%);
+  
     top: 50px;
     width: 100%;
     margin: 0 auto;
