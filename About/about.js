@@ -14,23 +14,34 @@ Dabiya.addEventListener("click", () => {
 });
 
 // 2. أنيميشن العدادات بالأرقام (Animated Counters)
+// 2. أنيميشن العدادات بالأرقام (Animated Counters)
 const counters = document.querySelectorAll(".counter");
+
 let counterObserver = new IntersectionObserver(
-  (ele, kimo) => {
-    ele.forEach((el) => {
-      if (el.isIntersecting) {
-        let counter = el.target;
-        let target = Number(counter.dataset.target);
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = Number(counter.dataset.target);
+
+        const duration = 2000; // مدة الأنيميشن بالكامل (ثانيتين)
+        const frameRate = 30; // بيتحدث كل 30 مللي ثانية (حوالي 33 إطار في الثانية)
+        const totalSteps = duration / frameRate;
+        const increment = target / totalSteps; // تحسب العداد يزيد كام في كل خطوة
+
         let count = 0;
-        let counting = setInterval(() => {
+
+        const counting = setInterval(() => {
+          count += increment;
           if (count >= target) {
+            counter.innerText = target; // التأكد من الوقوف عند الرقم المظبوط تماماً
             clearInterval(counting);
           } else {
-            count++;
-            counter.innerText = count;
+            counter.innerText = Math.ceil(count);
           }
-        });
-        kimo.unobserve(el.target);
+        }, frameRate); // التايم المظبوط هنا (30ms)
+
+        observer.unobserve(counter);
       }
     });
   },
@@ -38,6 +49,7 @@ let counterObserver = new IntersectionObserver(
     threshold: 0.3,
   },
 );
+
 counters.forEach((counter) => {
   counterObserver.observe(counter);
 });
