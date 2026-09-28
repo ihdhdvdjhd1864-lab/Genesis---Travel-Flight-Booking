@@ -35,18 +35,34 @@
 
         <ul class="nav-links">
           <li>
-            <a href="#">Flights <i class="fa-solid fa-chevron-down"></i></a>
+            <a href="index.html" class="nav-link">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
           </li>
           <li>
-            <a href="#">Hotels <i class="fa-solid fa-chevron-down"></i></a>
+            <a href="About/about.html" class="nav-link">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>About Us</span>
+            </a>
           </li>
           <li>
-            <a href="#">Experiences <i class="fa-solid fa-chevron-down"></i></a>
+            <a href="Services/services.html" class="nav-link">
+              <i class="fa-solid fa-concierge-bell"></i>
+              <span>Services</span>
+            </a>
           </li>
           <li>
-            <a href="#"
-              >Manage Booking <i class="fa-solid fa-chevron-down"></i
-            ></a>
+            <a href="Destinations/destinations.html" class="nav-link">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span>Destinations</span>
+            </a>
+          </li>
+          <li>
+            <a href="Contact/contact.html" class="nav-link">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Contact Us</span>
+            </a>
           </li>
         </ul>
 
@@ -59,7 +75,7 @@
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero" id="home">
         <div class="hero-title-area">
           <div class="tagline-badge">
             <i class="fa-solid fa-plane"></i>
@@ -74,19 +90,19 @@
           <!-- Category Tabs & Dropdown -->
           <div class="widget-top-bar">
             <div class="category-tabs">
-              <button class="tab-btn active">
+              <button class="tab-btn active" data-tab="flights">
                 <i class="fa-solid fa-plane"></i>
                 <span>Flights</span>
               </button>
-              <button class="tab-btn">
+              <button class="tab-btn" data-tab="hotels">
                 <i class="fa-solid fa-hotel"></i>
                 <span>Hotels</span>
               </button>
-              <button class="tab-btn">
+              <button class="tab-btn" data-tab="experiences">
                 <i class="fa-solid fa-compass"></i>
                 <span>Experiences</span>
               </button>
-              <button class="tab-btn">
+              <button class="tab-btn" data-tab="cars">
                 <i class="fa-solid fa-car"></i>
                 <span>Car Rental</span>
               </button>
@@ -112,13 +128,14 @@
                 <i class="fa-solid fa-location-dot"></i>
 
                 <select class="input-field" id="fromSelect">
+                  <option value="JFK">New York (JFK)</option>
                   <option value="CAI">Cairo (CAI)</option>
                   <option value="FCO">Rome (FCO)</option>
                   <option value="DXB">Dubai (DXB)</option>
                 </select>
               </div>
 
-              <span class="input-subtext" id="fromCountry">Egypt</span>
+              <span class="input-subtext" id="fromCountry">United States</span>
             </div>
 
             <!-- Swap -->
@@ -357,7 +374,21 @@
                       <span class="price-period">/ Return</span>
                     </div>
                   </div>
-                  <button class="btn-book">Book Now</button>
+                  <button
+                    class="btn-book direct-deal-btn"
+                    data-id="202"
+                    data-airline="Emirates"
+                    data-flightnumber="EK-201"
+                    data-from="CAI"
+                    data-to="DXB"
+                    data-departure="10:00 AM"
+                    data-arrival="03:30 PM"
+                    data-duration="3h 30m"
+                    data-class="Economy"
+                    data-price="499"
+                  >
+                    Book Now >
+                  </button>
                 </div>
               </div>
             </div>
@@ -385,7 +416,21 @@
                       <span class="price-period">/ Return</span>
                     </div>
                   </div>
-                  <button class="btn-book">Book Now</button>
+                  <button
+                    class="btn-book direct-deal-btn"
+                    data-id="203"
+                    data-airline="Japan Airlines"
+                    data-flightnumber="JL-708"
+                    data-from="CAI"
+                    data-to="TYO"
+                    data-departure="08:00 AM"
+                    data-arrival="11:00 PM"
+                    data-duration="10h 00m"
+                    data-class="Economy"
+                    data-price="649"
+                  >
+                    Book Now >
+                  </button>
                 </div>
               </div>
             </div>

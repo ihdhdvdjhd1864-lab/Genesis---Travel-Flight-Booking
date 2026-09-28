@@ -1,10 +1,8 @@
 // Get Search Data
 let searchData = JSON.parse(localStorage.getItem("arrDate"));
-
 let flightsContainer = document.querySelector("#flightsContainer");
 let resultsCount = document.querySelector("#resultsCount");
 let noResults = document.querySelector("#noResults");
-
 // Search Information
 if (searchData) {
   document.querySelector("#fromResult").textContent = searchData.fromSelect;
@@ -119,12 +117,14 @@ function displayFlights(results) {
 }
 
 // Get Flights
-let data;
+let data = [];
+let results = [];
+let originalResults = [];
 async function getFlights() {
   try {
     let response = await fetch("./dade.json");
     data = await response.json();
-    let results = data.filter((flight) => {
+    results = data.filter((flight) => {
       return (
         flight.from === searchData.fromSelect &&
         flight.to === searchData.toSelect &&
@@ -132,6 +132,7 @@ async function getFlights() {
         flight.class === searchData.classSelect
       );
     });
+    originalResults = [...results];
     displayFlights(results);
   } catch (error) {
     console.log("Error:", error);
@@ -139,9 +140,33 @@ async function getFlights() {
 }
 getFlights();
 
-let TravelCart = JSON.parse(localStorage.getItem("TravelCart")) || [];
 function handleSelectFlight(id) {
   let selectedFlight = data.find((flight) => flight.id === Number(id));
   localStorage.setItem("selectedFlight", JSON.stringify(selectedFlight));
   window.location.href = "checkout.html";
 }
+
+let sortSelect = document.querySelector("#sortSelect");
+let sortIcon = document.querySelector("#sortIcon");
+
+sortSelect.addEventListener("change", () => {
+  let value = sortSelect.value;
+
+  if (value === "cheapest") {
+    // أيقونة السهم نازل (من القليل للكثير)
+    sortIcon.className = "fa-solid fa-arrow-down-1-9";
+    results.sort((a, b) => a.price - b.price);
+  } else if (value === "expensive") {
+    // أيقونة السهم طالع (من الكثير للقليل)
+    sortIcon.className = "fa-solid fa-arrow-up-9-1";
+    results.sort((a, b) => b.price - a.price);
+  } else if (value === "default") {
+    // أيقونة الترتيب العامة العادية
+    sortIcon.className = "fa-solid fa-arrow-down-short-wide";
+    results = [...originalResults];
+  }
+
+  displayFlights(results);
+});
+
+

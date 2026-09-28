@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Genesis Travel</title>
+    <!-- FontAwesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Google Fonts Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <div class="Dabiya"></div>
+    <!-- Navbar (التنسيق الموحد) -->
+    <header class="glass-nav">
+      <div class="container nav-container">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <span>Genesis</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html" class="nav-link">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../About/about.html" class="nav-link">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Services/services.html" class="nav-link">
+              <i class="fa-solid fa-concierge-bell"></i>
+              <span>Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Destinations/destinations.html" class="nav-link">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span>Destinations</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link active">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Contact Us</span>
+            </a>
+          </li>
+        </ul>
+
+        <button class="btn-signin">Sign In</button>
+        <button class="hamburger-menu" id="hamburgerBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="contact-page">
+      <!-- Hero -->
+      <section class="contact-hero">
+        <div class="container">
+          <span class="tagline-badge">Get In Touch</span>
+          <h1>We'd Love to Hear From You</h1>
+          <p>
+            Have questions about your flight booking or trip itinerary? Drop us
+            a message!
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section">
+        <div class="container contact-grid">
+          <!-- Info Cards Side -->
+          <div class="contact-info">
+            <div class="info-item">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h3>Our Headquarter</h3>
+                <p>Alexandria, Egypt</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <h3>Email Support</h3>
+                <p>support@genesis-travel.com</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h3>Phone Line</h3>
+                <p>+20 123 456 7890</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Side -->
+          <div class="contact-form-card">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Flight Inquiry / Feedback"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  rows="5"
+                  placeholder="Write your message here..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <span>Send Message</span>
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+
+              <div class="form-alert" id="formAlert"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="simple-footer">
+      <div class="container">
+        <p>© 2026 Genesis Travel & Flights. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="contact.js"></script>
+  </body>
+</html>

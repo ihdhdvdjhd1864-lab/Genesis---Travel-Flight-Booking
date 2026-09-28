@@ -416,6 +416,8 @@
   color: #10b981; /* أيكونة درع الأمان بالأخضر */
 }
 
+
+
 /* ظبط المظهر على الموبايل */
 @media (max-width: 576px) {
   .ticket-verified-footer {

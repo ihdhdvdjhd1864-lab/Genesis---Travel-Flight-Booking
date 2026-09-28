@@ -14,7 +14,6 @@ let summaryPrice = document.getElementById("summaryPrice");
 let summaryPassengers = document.getElementById("summaryPassengers");
 let checkoutForm = document.getElementById("checkoutForm");
 let ticketId = document.getElementById("ticketId");
-ticketId.textContent = arrDate.travelersCount;
 
 // دالة عرض بيانات الرحلة في ملخص التذكرة
 function displayFlightSummary(flight) {
@@ -25,7 +24,6 @@ function displayFlightSummary(flight) {
   summaryClass.textContent = flight.class;
   summaryPassengers.textContent = arrDate.travelersCount;
   summaryPrice.textContent = `$${flight.price}`;
-  console.log(flight);
 }
 displayFlightSummary(selectedFlightData);
 checkoutForm.addEventListener("submit", (e) => {
@@ -95,12 +93,12 @@ checkoutForm.addEventListener("submit", (e) => {
     // إخفاء الفورم وإظهار كارت التذكرة
     checkoutForm.style.display = "none";
     document.getElementById("ticketContainer").style.display = "block";
-
     // حفظ الحجز
     localStorage.setItem(
       "latestBooking",
       JSON.stringify({ ...passengerDetails, flight: selectedFlightData }),
     );
     localStorage.removeItem("selectedFlight");
+
   }, 2500);
 });

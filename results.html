@@ -42,7 +42,19 @@
 
             <strong id="toResult">JFK</strong>
           </div>
+          <div class="sort-container">
+            <label for="sortSelect" class="sort-label">
+              <i id="sortIcon" class="fa-solid fa-arrow-down-short-wide"></i>
+              <!-- أيقونة الترتيب من الأرخص للأغلى -->
+              <span>الترتيب حسب:</span>
+            </label>
 
+            <select id="sortSelect" class="sort-select">
+              <option value="default">Default Sorting</option>
+              <option value="cheapest">Price: Low to High ⇣</option>
+              <option value="expensive">Price: High to Low ⇡</option>
+            </select>
+          </div>
           <div class="details">
             <span id="dateResult"></span>
             <span id="travelersResult"></span>

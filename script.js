@@ -10,6 +10,8 @@ let classSelect = document.querySelector("#classSelect");
 let tripTypeSelect = document.querySelector(".trip-type-select");
 fromSelect.addEventListener("change", () => {
   switch (fromSelect.value) {
+    case "JFK":
+      fromCountry.textContent = "United States";
     case "CAI":
       fromCountry.textContent = "Egypt";
       break;
@@ -70,7 +72,7 @@ const travelers = {
   infants: 0,
 };
 
-const counterButtons = document.querySelectorAll(".counter-btn");
+let counterButtons = document.querySelectorAll(".counter-btn");
 let travelersCount = document.querySelector("#travelersCount");
 counterButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -108,8 +110,6 @@ btnSearch.addEventListener("click", () => {
     adultsCount: document.querySelector("#adultsCount").textContent,
     childrenCount: document.querySelector("#childrenCount").textContent,
     infantsCount: document.querySelector("#infantsCount").textContent,
-    
-    
   };
   localStorage.setItem("arrDate", JSON.stringify(arrDate));
   window.location.href = "results.html";
@@ -128,5 +128,56 @@ arrBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     navLinks.classList.remove("active");
     Dabiya.classList.remove("active");
+  });
+});
+
+// عكس  مدينهات الوصول والوصول
+const swapBtn = document.getElementById("swapBtn");
+
+if (swapBtn && fromSelect && toSelect) {
+  swapBtn.addEventListener("click", () => {
+    let toSelectValue = toSelect.value;
+    let fromSelectValue = fromSelect.value;
+    [fromSelect.value, toSelect.value] = [toSelectValue, fromSelectValue];
+    [fromCountry.textContent, toCountry.textContent] = [
+      toCountry.textContent,
+      fromCountry.textContent,
+    ];
+  });
+}
+// 2. بنجيب كل الأزرار اللي واخدة كلاس tab-btn
+let tabBtns = document.querySelectorAll(".category-tabs .tab-btn");
+let searchGrid = document.querySelector(".search-grid");
+let widgetActionBar = document.querySelector(".widget-action-bar");
+tabBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".tab-btn.active").classList.remove("active");
+    btn.classList.add("active");
+  });
+});
+
+let directDealButtons = document.querySelectorAll(".direct-deal-btn");
+let arrDate = JSON.parse(localStorage.getItem("arrDate"));
+directDealButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let btn = e.currentTarget;
+    // بنجمع بيانات العرض في نفس شكل كائن الرحلة اللي صفحة checkout.html مستنياه
+    let selectedFlight = {
+      id: Number(btn.dataset.id),
+      airline: btn.dataset.airline,
+      flightNumber: btn.dataset.flightnumber,
+      from: btn.dataset.from,
+      to: btn.dataset.to,
+      departureTime: btn.dataset.departure,
+      arrivalTime: btn.dataset.arrival,
+      duration: btn.dataset.duration,
+      class: btn.dataset.class,
+      price: Number(btn.dataset.price),
+      stops: 0,
+    };
+    console.log(selectedFlight);
+    // حفظ الرحلة فوراً والتوجيه على checkout.html
+    localStorage.setItem("selectedFlight", JSON.stringify(selectedFlight));
+    window.location.href = "checkout.html";
   });
 });

@@ -383,6 +383,45 @@ body {
   background: #ffffff;
   color: #000000;
 }
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1e1e2d;
+  padding: 10px 16px;
+  border-radius: 10px;
+  width: fit-content;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.sort-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffb703; /* لون ذهبي شيك للأيقونة */
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.sort-label i {
+  font-size: 1.2rem;
+}
+
+.sort-select {
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.sort-select option {
+  background: #1e1e2d;
+  color: #fff;
+}
 
 /* =========================================
    Responsive Design for Mobile

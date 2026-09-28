@@ -41,7 +41,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* Glassmorphism Styles */
 .glass-nav {
   background: rgba(11, 19, 43, 0.65);
@@ -130,15 +132,18 @@ header {
   display: flex;
   align-items: center;
   gap: 6px;
+  display: flex;
+  align-items: center;
 }
 
-.nav-links a:hover {
-  color: white;
+.nav-link:hover {
+  color: var(--text-light);
+  transform: translateY(-3px);
 }
 
-.nav-links a i {
-  font-size: 10px;
-  opacity: 0.6;
+.nav-link i {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
 }
 
 .btn-signin {
@@ -707,7 +712,6 @@ header {
   transform: translateY(-50%) scale(1.05);
 }
 
-
 /* قسم شركات الطيران */
 .partners-section {
   background-color: var(--bg-dark, #0b132b);
@@ -732,8 +736,20 @@ header {
   overflow: hidden;
   position: relative;
   /* إضافة تأثير تدرج واختفاء على الأطراف */
-  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
 }
 
 .partners-track {
@@ -792,7 +808,6 @@ header {
     transform: translateX(-50%);
   }
 }
-
 
 /* Each Row */
 .traveler-row {
@@ -1295,9 +1310,6 @@ header {
 
 /* زر اسأل Gemini */
 
-
-
-
 /* الجزء السفلي */
 .footer-bottom {
   display: flex;
@@ -1382,7 +1394,6 @@ header {
     top: 80px;
     left: -100%;
     width: 50%;
-
     background-color: #111827;
     padding: 24px;
     display: flex;
