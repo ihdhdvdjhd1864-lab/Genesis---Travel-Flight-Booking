@@ -15,22 +15,29 @@ Dabiya.addEventListener("click", () => {
 
 // 2. أنيميشن العدادات بالأرقام (Animated Counters)
 const counters = document.querySelectorAll(".counter");
-
+let counterObserver = new IntersectionObserver(
+  (ele, kimo) => {
+    ele.forEach((el) => {
+      if (el.isIntersecting) {
+        let counter = el.target;
+        let target = Number(counter.dataset.target);
+        let count = 0;
+        let counting = setInterval(() => {
+          if (count >= target) {
+            clearInterval(counting);
+          } else {
+            count++;
+            counter.innerText = count;
+          }
+        });
+        kimo.unobserve(el.target);
+      }
+    });
+  },
+  {
+    threshold: 0.3,
+  },
+);
 counters.forEach((counter) => {
-  const updateCount = () => {
-    const target = +counter.getAttribute("data-target");
-    const count = +counter.innerText;
-    const speed = 40; // سرعة العداد
-
-    const increment = Math.ceil(target / speed);
-
-    if (count < target) {
-      counter.innerText = count + increment;
-      setTimeout(updateCount, 40);
-    } else {
-      counter.innerText = target + "+";
-    }
-  };
-
-  updateCount();
+  counterObserver.observe(counter);
 });
