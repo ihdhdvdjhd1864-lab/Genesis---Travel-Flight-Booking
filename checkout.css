@@ -1,3 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  display: none;
+}
 /* =========================================
    Genesis - Checkout Page Styles
 ========================================= */
@@ -415,8 +421,6 @@
 .system-signature i {
   color: #10b981; /* أيكونة درع الأمان بالأخضر */
 }
-
-
 
 /* ظبط المظهر على الموبايل */
 @media (max-width: 576px) {

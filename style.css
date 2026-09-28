@@ -44,6 +44,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+  display: none;
+}
+
 /* Glassmorphism Styles */
 .glass-nav {
   background: rgba(11, 19, 43, 0.65);
@@ -147,7 +151,6 @@ header {
 }
 
 .btn-signin {
-  background: white;
   color: var(--text-primary);
   padding: 10px 26px;
   border-radius: var(--radius-full);
