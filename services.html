@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - Genesis Travel</title>
+    <!-- Social Media Preview -->
+    <meta property="og:title" content="Genesis - Travel & Flight Booking" />
+    <meta
+      property="og:description"
+      content="Book flights, hotels, car rentals, and more with Genesis."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1542296332-2e4473faf563?q=80&w=2070&auto=format&fit=crop"
+    />
+
+    <meta property="og:type" content="website" />
+    <!-- FontAwesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- Google Fonts Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="services.css" />
+  </head>
+  <body>
+    <div class="Dabiya"></div>
+
+    <!-- Navbar (نفس التنسيق الموحد) -->
+    <header class="glass-nav">
+      <div class="container nav-container">
+        <a href="../index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-plane-departure"></i>
+          </div>
+          <span>Genesis</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html" class="nav-link">
+              <i class="fa-solid fa-house"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../About/about.html" class="nav-link">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>About Us</span>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="nav-link active">
+              <i class="fa-solid fa-concierge-bell"></i>
+              <span>Services</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Destinations/destinations.html" class="nav-link">
+              <i class="fa-solid fa-earth-americas"></i>
+              <span>Destinations</span>
+            </a>
+          </li>
+          <li>
+            <a href="../Contact/contact.html" class="nav-link">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span>Contact Us</span>
+            </a>
+          </li>
+        </ul>
+
+        <button class="btn-signin">Sign In</button>
+        <button class="hamburger-menu" id="hamburgerBtn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="services-page">
+      <!-- Services Hero -->
+      <section class="services-hero">
+        <div class="container">
+          <span class="tagline-badge">What We Offer</span>
+          <h1>Tailored Travel Services</h1>
+          <p>
+            Explore world-class flight solutions, luxury stays, and custom
+            journey itineraries.
+          </p>
+        </div>
+      </section>
+
+      <!-- Interactive Services Grid -->
+      <section class="services-grid-section">
+        <div class="container grid-container">
+          <!-- Card 1 -->
+          <div class="service-card" data-service="flight">
+            <div class="card-icon">
+              <i class="fa-solid fa-plane"></i>
+            </div>
+            <h3>Flight Booking</h3>
+            <p>
+              Instant ticket reservations across 500+ global airlines with
+              flexible rebooking options.
+            </p>
+            <button class="btn-details">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card" data-service="hotel">
+            <div class="card-icon">
+              <i class="fa-solid fa-hotel"></i>
+            </div>
+            <h3>Hotel Reservations</h3>
+            <p>
+              Handpicked luxury resorts and central boutique hotels with best
+              rate guarantees.
+            </p>
+            <button class="btn-details">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card" data-service="car">
+            <div class="card-icon">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <h3>Airport Transfers</h3>
+            <p>
+              Private chauffeur services and reliable car rentals waiting as
+              soon as you land.
+            </p>
+            <button class="btn-details">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-card" data-service="vip">
+            <div class="card-icon">
+              <i class="fa-solid fa-crown"></i>
+            </div>
+            <h3>VIP Lounge Access</h3>
+            <p>
+              Relax in premium airport lounges worldwide with high-speed Wi-Fi
+              and complimentary dining.
+            </p>
+            <button class="btn-details">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal Popup for Service Details -->
+    <div class="modal" id="serviceModal">
+      <div class="modal-content glass-card">
+        <span class="close-btn" id="closeModal">&times;</span>
+        <h2 id="modalTitle">Service Name</h2>
+        <p id="modalDesc">Detailed description goes here...</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="simple-footer">
+      <div class="container">
+        <p>© 2026 Genesis Travel & Flights. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="services.js"></script>
+  </body>
+</html>
